@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+#include "TD_surcharge.h"
+/////////////////////////////////////////////////////////////////// classe vecteur_inte /////////////////////////////////////////////////////////////////////////////
+class vecteur_intel: 
+public vecteur {
+    public:  
+    // constructeurs    
+    vecteur_intel(int dim_vect): vecteur(dim_vect){};  
+    vecteur_intel(): vecteur(0,0){};  
+    vecteur_intel(int dim_vect,float* tab):vecteur ( dim_vect, tab){};  vecteur_intel(const vecteur_intel & autre):vecteur (autre){};  // destructeur  // operateurs  vecteur_intel & operator= ( const vecteur_intel & operande1);  vecteur_intel & operator+= (vecteur_intel & operande);  // fonction  virtual inline string getname(){return string("classe vecteur_intel");}private:};/////////////   constructeurs ////////////////////////////////   destructeur ////////////////////////////////////// operateurs //////////////////////////// affectation vecteur_intel & vecteur_intel::operator= (const vecteur_intel & operande1){  int i;  if(dim != operande1.dim){    if (dim!=0) delete [] elements;    if(!(elements=new float[operande1.dim])){      cout << "erreur allocation \n";      exit(0);    }    dim=operande1.dim;  }  for (i=0;i<dim;i++){    elements[i]=operande1.elements[i];  }  return(*this);}// +=vecteur_intel & vecteur_intel::operator+= (vecteur_intel & operande){  int i;
